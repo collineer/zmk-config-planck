@@ -1,0 +1,93 @@
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/outputs.h>
+
+#define WIN 0
+#define COLEMAK 1
+#define WIN_FUNC 2
+#define NUMPAD 3
+
+
+
+
+/ {  
+    behaviors {
+
+        /*
+        td_cap: tap_dance_caps {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp LSHIFT>, <&kp LSHIFT>, <&kp CAPS>;
+        };
+
+         td_tab: tap_dance_tab {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <100>;
+            bindings = <&kp TAB>, <&kp TAB>, <&kp CAPS>;
+        };
+        */
+
+        td_ly: tap_dance_layers {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&mo WIN_FUNC>, <&tog WIN_FUNC>, <&tog NUMPAD>, <&tog COLEMAK>;
+        };
+
+        tdblue: tap_dance_blue {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&to WIN>, <&kp CAPS>, <&out OUT_TOG>;
+        };
+        
+    };
+
+
+
+    keymap {
+        compatible = "zmk,keymap";
+
+        windows_default_layer {
+            bindings = <
+                &kp ESC     &kp Q      &kp W      &kp E     &kp R        &kp T     &kp Y         &kp U   &kp I       &kp O      &kp P       &kp BSPC   
+                &kp TAB     &kp A      &kp S      &kp D     &kp F        &kp G     &kp H         &kp J   &kp K       &kp L      &kp SEMI    &kp APOS   
+                &kp LSHIFT  &kp Z      &kp X      &kp C     &kp V        &kp B     &kp N         &kp M   &kp COMMA   &kp DOT    &kp UP      &kp ENTER   
+                &kp LCTRL   &kp LWIN   &kp LALT   &tdblue   &td_ly                 &kp SPACE             &kp SLASH   &kp LEFT   &kp DOWN    &kp RIGHT   
+            >;
+        }; 
+
+
+        colemak_layer {
+            bindings = <
+                &kp ESC     &kp Q      &kp W      &kp F     &kp P        &kp G     &kp J         &kp L   &kp U       &kp Y      &kp SEMI    &kp BSPC   
+                &kp TAB     &kp A      &kp R      &kp S     &kp T        &kp D     &kp H         &kp N   &kp E       &kp I      &kp O       &kp APOS   
+                &kp LSHIFT  &kp Z      &kp X      &kp C     &kp V        &kp B     &kp K         &kp M   &kp COMMA   &kp DOT    &kp UP      &kp ENTER   
+                &trans      &trans     &trans     &trans    &trans                 &trans                &kp SLASH   &kp LEFT   &kp DOWN    &kp RIGHT   
+            >;
+        }; 
+        
+
+         windows_function_layer {
+            bindings = <
+                &kp F1      &kp F2       &kp F3     &kp F4    &kp F5      &kp F6    &kp F7        &kp F8   &kp F9      &kp F10     &kp F11    &trans   
+                &kp N1      &kp N2       &kp N3     &kp N4    &kp N5      &kp N6    &kp N7        &kp N8   &kp N9      &kp N0      &kp MINUS  &kp EQUAL
+                &trans      &out OUT_TOG &none      &none     &none       &none     &none         &none    &none       &kp DOT     &kp LBKT   &kp RBKT
+                &trans      &trans       &trans     &trans    &trans                &trans                 &bootloader &none       &none      &kp F12  
+            >;
+        };
+
+
+        numpad_layer {
+            bindings = <
+                &none      &none      &kp UP     &none     &none       &none     &none         &kp N7   &kp N8      &kp N9      &kp MINUS   &trans   
+                &none      &kp LEFT   &kp DOWN   &kp RIGHT &none       &none     &kp STAR      &kp N4   &kp N5      &kp N6      &kp PLUS    &none  
+                &none      &none      &none      &none     &none       &none     &kp KP_SLASH  &kp N1   &kp N2      &kp N3      &kp ENTER   &none  
+                &trans     &trans     &trans     &trans    &trans                &trans                 &kp N0      &kp KP_DOT  &none       &none  
+            >;
+        };
+    };
+};

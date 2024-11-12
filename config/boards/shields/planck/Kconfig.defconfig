@@ -1,0 +1,6 @@
+if SHIELD_PLANCK
+
+config ZMK_KEYBOARD_NAME
+    default "planck"
+
+endif
