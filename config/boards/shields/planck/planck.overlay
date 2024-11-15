@@ -9,12 +9,12 @@
 
 / {
     chosen {
-        zmk,kscan = &kscan;
+        zmk,kscan = &def_kscan;
         zmk,physical-layout = &physical_layout0;
         //zmk,matrix_transform = &transform;
     };
 
-    kscan: kscan {
+    def_kscan: kscan {
         compatible = "zmk,kscan-gpio-matrix";
         label = "KSCAN";
         diode-direction = "col2row";
