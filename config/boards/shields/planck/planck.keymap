@@ -59,5 +59,36 @@
                 &kp LCTRL   &kp LWIN   &kp LALT   &tdblue   &td_ly            &kp SPACE          &none   &kp SLASH   &kp LEFT   &kp DOWN    &kp RIGHT   
             >;
         }; 
+
+
+        colemak_layer {
+            bindings = <
+                &kp ESC     &kp Q      &kp W      &kp F     &kp P        &kp G     &kp J         &kp L   &kp U       &kp Y      &kp SEMI    &kp BSPC   
+                &kp TAB     &kp A      &kp R      &kp S     &kp T        &kp D     &kp H         &kp N   &kp E       &kp I      &kp O       &kp APOS   
+                &kp LSHIFT  &kp Z      &kp X      &kp C     &kp V        &kp B     &kp K         &kp M   &kp COMMA   &kp DOT    &kp UP      &kp ENTER   
+                &trans      &trans     &trans     &trans    &trans                 &trans        &none   &kp SLASH   &kp LEFT   &kp DOWN    &kp RIGHT   
+            >;
+        }; 
+        
+
+         windows_function_layer {
+            bindings = <
+                &kp F1      &kp F2       &kp F3     &kp F4    &kp F5      &kp F6    &kp F7        &kp F8   &kp F9      &kp F10     &kp F11    &trans   
+                &kp N1      &kp N2       &kp N3     &kp N4    &kp N5      &kp N6    &kp N7        &kp N8   &kp N9      &kp N0      &kp MINUS  &kp EQUAL
+                &trans      &out OUT_TOG &none      &none     &none       &none     &none         &none    &none       &kp DOT     &kp LBKT   &kp RBKT
+                &trans      &trans       &trans     &trans    &trans                &trans        &none &studio_unlock &bootloader &none      &kp F12  
+            >;
+        };
+
+
+        numpad_layer {
+            bindings = <
+                &none      &none      &kp UP     &none     &none       &none     &none         &kp N7   &kp N8      &kp N9      &kp MINUS   &trans   
+                &none      &kp LEFT   &kp DOWN   &kp RIGHT &none       &none     &kp STAR      &kp N4   &kp N5      &kp N6      &kp PLUS    &none  
+                &none      &none      &none      &none     &none       &none     &kp KP_SLASH  &kp N1   &kp N2      &kp N3      &kp ENTER   &none  
+                &trans     &trans     &trans     &trans    &trans                &trans        &none    &kp N0      &kp KP_DOT  &none       &none  
+            >;
+        };
+
     };
 };
